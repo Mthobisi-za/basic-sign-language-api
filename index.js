@@ -86,7 +86,7 @@ app.post('/submit', async(req, res) => {
     }
 });
 app.get('/board', async(req, res) => {
-    var usersData = (await pool.query(`select level, player_score, player.name from player_exercise, player where player.id = player_exercise.player_id`)).rows;
+    var usersData = (await pool.query(`select level, player_score, player.name from player_exercise, player where player.id = player_exercise.player_id order by player_score desc`)).rows;
     res.json({
         data: usersData
     })
