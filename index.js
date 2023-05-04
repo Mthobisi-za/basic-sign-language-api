@@ -10,7 +10,7 @@ app.use(cors({
 app.use(express.static('public'));
 app.use(body.urlencoded({ extended: false }));
 app.use(body.json());
-var connectionstr = process.env.DATABASE_URL;
+var connectionstr = process.env.DATABASE_URL || "postgresql://Mthobisi-za:M0HYXP4OZzUg@ep-silent-moon-456680.us-east-2.aws.neon.tech/neondb";
 var pool;
 if (connectionstr) {
     pool = new Pool({
